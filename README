@@ -52,5 +52,15 @@ Plugins Installed
 -------------
 This fork of dwm provides several patches to enhance the user experience
 - Alpha: Allow for transparency in the window borders and status bar
-- Fullgaps: Gaps between windows. can be adjusted with super + +/- and defaults can be set with super + shift + +/-
+- Fullgaps: Gaps between windows. Can be adjusted with super + +/- and defaults can be set with super + shift + +/-
+- Fibonacci: Provides the fibonacci type spiral layouts
+- barheight: Allows for manual adjustment of the bar height
 
+Misc Changes
+-------------
+- uses dmenu-chandlerj which is available at this repo:
+    https://github.com/chandlerj/dmenu-chandlerj
+  dmenu is set to open in the center of the screen using the -c flag
+- includes support for the dmenu plugin bmks which provides bookmarks
+- uses chans-slstatus for status bar; available at:
+    https://github.com/chandlerj/chans-slstatus
