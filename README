@@ -46,3 +46,11 @@ Configuration
 -------------
 The configuration of dwm is done by creating a custom config.h
 and (re)compiling the source code.
+
+
+Plugins Installed
+-------------
+This fork of dwm provides several patches to enhance the user experience
+- Alpha: Allow for transparency in the window borders and status bar
+- Fullgaps: Gaps between windows. can be adjusted with super + +/- and defaults can be set with super + shift + +/-
+
