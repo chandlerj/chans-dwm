@@ -79,6 +79,9 @@ static const char *dmenucmd[] = { "/usr/bin/dmenu_run", "-i", "-c", "-nb", col_g
 static const char *termcmd[]  = { "kitty", NULL };
 static const char *bmkscmd[]  = { "bmks", NULL };
 static const char *bmksDelcmd[]  = { "bmks", "del" };
+static const char *mutecmd[] = { "pactl", "set-sink-mute", "0", "toggle", NULL };
+static const char *volupcmd[] = { "pactl", "set-sink-volume", "0", "+5%", NULL };
+static const char *voldowncmd[] = { "pactl", "set-sink-volume", "0", "-5%", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -86,6 +89,9 @@ static const Key keys[] = {
 	{ MODKEY,             		    XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,             		    XK_b,      spawn,          {.v = bmkscmd} },
 	{ MODKEY|ShiftMask,    		    XK_b,      spawn,          {.v = bmksDelcmd} },
+    { ShiftMask,                    XK_F9,     spawn,          {.v = mutecmd} },
+    { ShiftMask,                    XK_F10,    spawn,          {.v = voldowncmd} },
+    { ShiftMask,                    XK_F11,    spawn,          {.v = volupcmd} },
 	{ MODKEY,                       XK_v,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
