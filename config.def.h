@@ -16,7 +16,7 @@ static const char col_cyan[]        = "#005577";
 static const char col_purple[]      = "#6200ad";
 static const char col_deepblue[]      = "#131221";
 static const unsigned int baralpha = 180;
-static const unsigned int borderalpha = 140;
+static const unsigned int borderalpha = 255;
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -75,13 +75,16 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 //static const char *dmenucmd[] = { "/usr/bin/dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_deepblue, "-sf", col_gray4, "-c"};
-static const char *dmenucmd[] = { "/usr/bin/dmenu_run", "-i", "-c", "-nb", col_gray1, "-nf", col_gray3, "-sb", col_deepblue, "-sf", col_gray4}; 
+static const char *dmenucmd[] = { "dmenu_run", "-c", "-nb", col_gray1, "-nf", col_gray3, "-sb", col_deepblue, "-sf", col_gray4}; 
 static const char *termcmd[]  = { "kitty", NULL };
 static const char *bmkscmd[]  = { "bmks", NULL };
 static const char *bmksDelcmd[]  = { "bmks", "del" };
 static const char *mutecmd[] = { "pactl", "set-sink-mute", "0", "toggle", NULL };
 static const char *volupcmd[] = { "pactl", "set-sink-volume", "0", "+5%", NULL };
 static const char *voldowncmd[] = { "pactl", "set-sink-volume", "0", "-5%", NULL };
+static const char *dimdowncmd[] = { "brightnessctl", "set", "5%-", NULL };
+static const char *dimupcmd[] = { "brightnessctl", "set", "+5%", NULL };
+static const char *filemancmd[] = { "thunar", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -89,9 +92,12 @@ static const Key keys[] = {
 	{ MODKEY,             		    XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,             		    XK_b,      spawn,          {.v = bmkscmd} },
 	{ MODKEY|ShiftMask,    		    XK_b,      spawn,          {.v = bmksDelcmd} },
-    { ShiftMask,                    XK_F9,     spawn,          {.v = mutecmd} },
-    { ShiftMask,                    XK_F10,    spawn,          {.v = voldowncmd} },
-    { ShiftMask,                    XK_F11,    spawn,          {.v = volupcmd} },
+    { ShiftMask,                    XK_F1,     spawn,          {.v = mutecmd} },
+    { ShiftMask,                    XK_F2,     spawn,          {.v = voldowncmd} },
+    { ShiftMask,                    XK_F3,     spawn,          {.v = volupcmd} },
+    { ShiftMask,                    XK_F5,     spawn,          {.v = dimdowncmd} },
+    { ShiftMask,                    XK_F6,     spawn,          {.v = dimupcmd} },
+    { MODKEY,                       XK_e,      spawn,          {.v = filemancmd} },
 	{ MODKEY,                       XK_v,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
