@@ -1,5 +1,6 @@
-/* See LICENSE file for copyright and license details. */
+#include "movestack.c"
 
+/* See LICENSE file for copyright and license details. */
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int gappx     = 10;        /* gaps between windows */
@@ -76,6 +77,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 //static const char *dmenucmd[] = { "/usr/bin/dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_deepblue, "-sf", col_gray4, "-c"};
 static const char *dmenucmd[] = { "dmenu_run", "-c", "-nb", col_gray1, "-nf", col_gray3, "-sb", col_deepblue, "-sf", col_gray4}; 
+static const char *clipmenucmd[] = { "clipmenu", "-c", "-nb", col_gray1, "-nf", col_gray3, "-sb", col_deepblue, "-sf", col_gray4}; 
 static const char *termcmd[]  = { "kitty", NULL };
 static const char *bmkscmd[]  = { "bmks", NULL };
 static const char *bmksDelcmd[]  = { "bmks", "del" };
@@ -89,6 +91,7 @@ static const char *filemancmd[] = { "thunar", NULL };
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_c,      spawn,          {.v = clipmenucmd } },
 	{ MODKEY,             		    XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,             		    XK_b,      spawn,          {.v = bmkscmd} },
 	{ MODKEY|ShiftMask,    		    XK_b,      spawn,          {.v = bmksDelcmd} },
@@ -105,6 +108,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,             		    XK_q,      killclient,     {0} },
@@ -124,6 +129,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
+	{ ShiftMask,                    XK_F12,    quit,           {0} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -133,7 +139,6 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ ShiftMask,             XK_F12,      quit,           {0} },
 };
 
 /* button definitions */
