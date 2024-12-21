@@ -17,7 +17,7 @@ Afterwards enter the following command to build and install dwm (if
 necessary as root):
 
     make clean install
-
+    
 
 Running dwm
 -----------
@@ -44,8 +44,12 @@ like this in your .xinitrc:
 
 Configuration
 -------------
-The configuration of dwm is done by creating a custom config.h
-and (re)compiling the source code.
+The configuration of dwm is done by modifying config.def.h, after which
+
+make clean install
+
+should be run to apply the configuration changes
+
 
 
 Plugins Installed
@@ -55,6 +59,11 @@ This fork of dwm provides several patches to enhance the user experience
 - Fullgaps: Gaps between windows. Can be adjusted with super + +/- and defaults can be set with super + shift + +/-
 - Fibonacci: Provides the fibonacci type spiral layouts
 - barheight: Allows for manual adjustment of the bar height
+- movestack: Swap positions of windows in the stack, useful for rearranging windows
+- barpadding: float status bar in window
+- centerwindowname: center window title in status bar
+- staticstatus: keep system stats only on one monitor (default behavior is for stats to follow focused window)
+- centeredmaster: adds centered master layout
 
 Misc Changes
 -------------
@@ -62,5 +71,5 @@ Misc Changes
     https://github.com/chandlerj/dmenu-chandlerj
   dmenu is set to open in the center of the screen using the -c flag
 - includes support for the dmenu plugin bmks which provides bookmarks
-- uses chans-slstatus for status bar; available at:
-    https://github.com/chandlerj/chans-slstatus
+- uses rstatus for status bar; available at:
+    https://github.com/chandlerj/rstatus
