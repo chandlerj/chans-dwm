@@ -71,12 +71,12 @@ static const Layout layouts[] = {
 	{ "|M|",      centeredmaster },
 	{ ">M>",      centeredfloatingmaster },
 	{ "HHH",      grid },
+	{ ":::",      gaplessgrid },
 	{ "TTT",      bstack },
 	{ "H[]",      deck },
 	{ "===",      bstackhoriz },
 	{ "###",      nrowgrid },
 	{ "---",      horizgrid },
-	{ ":::",      gaplessgrid },
 	{ NULL,       NULL },
 };
 
@@ -137,15 +137,20 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_equal,  defaultgaps,    {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_q,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_r,      setlayout,      {.v = &layouts[3]} },
-	{ MODKEY|ShiftMask,             XK_r,      setlayout,      {.v = &layouts[4]} },
-	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[5]} },
-	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[6]} },
-	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[7]} },
-	{ MODKEY,                       XK_s,      setlayout,      {.v = &layouts[8]} },
+	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} }, /*Tile*/
+	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} }, /*floating*/
+	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} }, /*monocle*/
+	{ MODKEY,                       XK_r,      setlayout,      {.v = &layouts[3]} }, /*spiral*/
+	{ MODKEY|ShiftMask,             XK_r,      setlayout,      {.v = &layouts[4]} }, /*dwindle*/
+	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[5]} }, /*cenetered master*/
+	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[6]} }, /*cenetered master (floating)*/
+	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[7]} }, /*grid*/
+	{ MODKEY|ShiftMask,             XK_g,      setlayout,      {.v = &layouts[8]} }, /*grid-gapless*/
+	{ MODKEY,                       XK_s,      setlayout,      {.v = &layouts[9]} }, /*bstack*/
+	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[10]} }, /*deck*/
+	{ MODKEY|ShiftMask,             XK_s,      setlayout,      {.v = &layouts[11]} }, /*hori-bstack*/
+	{ MODKEY,                       XK_n,      setlayout,      {.v = &layouts[12]} }, /*nrowgrid*/
+	{ MODKEY,                       XK_x,      setlayout,      {.v = &layouts[13]} }, /*horigrid*/
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
