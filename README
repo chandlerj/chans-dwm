@@ -46,3 +46,21 @@ Configuration
 -------------
 The configuration of dwm is done by creating a custom config.h
 and (re)compiling the source code.
+
+Patches 
+-------
+- Alpha: Allow for transparency in the bar and in the boarder around windows. This is disabled by default
+- Barpadding: Offset and change length of bar from top and sides of monitor.
+- Movestack: Add shortcuts to reorganize stack without promoting window to master
+- StaticStatus: Keep status (string from xsetroot) on main monitor
+- Status2d: allow for status bar to read escape codes
+- Vanitygaps-Combo: Adds basically every gap on suckless website with gap patches, and includes other patches such as cfact which allows for changing importance factor of a window. This allows for resizing within the master/slave stacks. 
+
+Misc. Changes
+-------------
+- Changed most of the keybinds to my liking. Check config.def.h for keybinds
+- Basically every layout has a binding, but not all of them are intuitive.
+- Default font is Noto Sans
+- Dmenu expects for centering patch to be applied (remove "-c" flag if undesired)
+- Default terminal changed to alacritty
+- expects the pactl and brightnessctl programs to be installed to control volume and screen brightness, respectively.
