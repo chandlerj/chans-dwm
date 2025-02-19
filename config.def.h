@@ -12,8 +12,8 @@ static       int smartgaps          = 0;        /* 1 means no outer gap when the
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int vertpad            = 0;        /* vertical padding of bar */
-static const int sidepad            = 100;      /* horizontal padding of bar */
-static const char *fonts[]          = { "Noto Sans:size=11" };
+static const int sidepad            = 0;      /* horizontal padding of bar */
+static const char *fonts[]          = { "Noto Sans:size=14" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -22,7 +22,7 @@ static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
 static const char col_purple[]      = "#6200ad";
 static const char col_deepblue[]      = "#131221";
-static const unsigned int baralpha = 255;
+static const unsigned int baralpha = 200;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -40,7 +40,7 @@ static const unsigned int alphas[][3]      = {
 static const int statmonval = 0;
 
 /* tagging */
-static const char *tags[] = { " ", " ", " ", " ", " " };
+static const char *tags[] = { "", "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
