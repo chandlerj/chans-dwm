@@ -40,7 +40,7 @@ static const unsigned int alphas[][3]      = {
 static const int statmonval = 0;
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", "" };
+static const char *tags[] = { "1", "2", "3", "4", "5" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -98,9 +98,9 @@ static const char *clipmenucmd[] = { "clipmenu", "-c", "-nb", col_gray1, "-nf", 
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *bmkscmd[]  = { "bmks", NULL };
 static const char *bmksDelcmd[]  = { "bmks", "del" };
-static const char *mutecmd[] = { "pactl", "set-sink-mute", "0", "toggle", NULL };
-static const char *volupcmd[] = { "pactl", "set-sink-volume", "0", "+5%", NULL };
-static const char *voldowncmd[] = { "pactl", "set-sink-volume", "0", "-5%", NULL };
+static const char *mutecmd[] = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL };
+static const char *volupcmd[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL };
+static const char *voldowncmd[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", NULL };
 static const char *dimdowncmd[] = { "brightnessctl", "set", "5%-", NULL };
 static const char *dimupcmd[] = { "brightnessctl", "set", "+5%", NULL };
 static const char *filemancmd[] = { "thunar", NULL };
